@@ -17,9 +17,9 @@ const QRGenerator = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-6 min-h-screen bg-gray-100 text-gray-900">
-      <div className="bg-white shadow-xl rounded-xl p-6 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-4 text-center">QR Code Generator</h2>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 text-gray-900 p-4">
+      <div className="flex flex-col items-center bg-white shadow-xl p-6 rounded-2xl w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-4">QR Code Generator</h2>
         <input
           type="text"
           placeholder="Enter text or link"
@@ -48,21 +48,22 @@ const QRGenerator = () => {
           </label>
         </div>
         {text && (
-          <div ref={qrRef} className="relative mt-6 bg-white p-4 rounded-lg shadow-lg flex justify-center">
+          <div ref={qrRef} className="relative mt-6 bg-white p-4 rounded-lg shadow-lg">
             <QRCodeCanvas value={text} size={200} fgColor={fgColor} bgColor={bgColor} />
           </div>
         )}
         {text && (
           <button
             onClick={handleDownload}
-            className="bg-blue-500 text-white px-6 py-2 mt-4 rounded-lg shadow-md hover:bg-blue-600 transition-all w-full"
+            className="bg-blue-500 text-white px-6 py-2 mt-4 rounded-lg shadow-md hover:bg-blue-600 transition-all"
           >
             Download QR Code
           </button>
         )}
       </div>
     </div>
-  );
+  )
+  
 };
 
 export default QRGenerator;
